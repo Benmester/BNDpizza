@@ -9,13 +9,14 @@
                     <h2><a href="{{ $item['nev'] }}">{{ $item['nev'] }}</a></h2>
                     <p>
                         {{ $item['feltet'] }}
-                    </p>
-                    <p>
+                        <br>
                         <b>Akciós ár (24cm) <span style="color: red">{{ $item['ar'] }} Ft </span> </b>
                     </p>
+
                     <p>
                         <a href="adatlap/{{ $item['id'] }}">További méretek</a>
                     </p>
+
                     <hr>
                 </div>
             @endforeach

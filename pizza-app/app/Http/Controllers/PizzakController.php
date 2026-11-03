@@ -19,4 +19,11 @@ class PizzakController extends Controller
             "data" => $data
         ]);
     }
+
+    public function Adatlap() {
+        $data = Pizza::all();
+        return view('adatlap', [
+            "data" => $data
+        ]);
+    }
 }
