@@ -7,8 +7,8 @@
             <b>Rendezés: </b>
             <a href="/osszes/abc">Név szerint növekvő </a>
             <a href="/osszes/cba">Név szerint csökkenő </a>
-            <a href="">Ár szerint növekvő </a>
-            <a href="">Ár szerint csökkenő</a>
+            <a href="/osszes/123">Ár szerint növekvő </a>
+            <a href="/osszes/321">Ár szerint csökkenő</a>
         </p>
         <table class="table table-striped">
             <tr>

@@ -57,7 +57,10 @@ class PizzakController extends Controller
         }
     }
 
-    public function Ajanlat($p) {
-
+    public function Ajanlat() {
+        $data = Pizza::inRandomOrder() -> first();
+        return view('adatlap', [
+            "data" => $data
+        ]);
     }
 }

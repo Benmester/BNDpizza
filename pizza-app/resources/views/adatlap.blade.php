@@ -18,9 +18,9 @@
         </p>
         <ul>
             @if ($data['akcios'] == 1)
-                <li>24 cm: <span style="color: red">{{ $data['ar'] }} Ft</span></li>
-                <li>32 cm: <span style="color: red">{{ $data['ar'] * 1.25 }} Ft</span></li>
-                <li>45 cm: <span style="color: red">{{ $data['ar'] * 1.5 }} Ft</span></li>
+                <li>24 cm: <b><span style="color: red">{{ $data['ar'] }} Ft</span></b></li>
+                <li>32 cm: <b><span style="color: red">{{ $data['ar'] * 1.25 }} Ft</span></b></li>
+                <li>45 cm: <b><span style="color: red">{{ $data['ar'] * 1.5 }} Ft</span></b></li>
             @else
                 <li>24 cm: <span>{{ $data['ar'] }} Ft</span></li>
                 <li>32 cm: <span>{{ $data['ar'] * 1.25 }} Ft</span></li>
