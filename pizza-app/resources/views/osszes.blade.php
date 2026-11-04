@@ -24,14 +24,16 @@
                     <td><a href="/adatlap/{{ $item['id'] }}">{{ $item['nev'] }}</a></td>
                     <td>{{ $item['feltet'] }}</td>
                     @if ($item['akcios'] == 1)
-                        <td><b><span style="color: red">{{ $item['ar'] }} Ft</span></b></td>
-                        <td><b><span style="color: red">{{ $item['ar'] * 1.25 }} Ft</span></b></td>
-                        <td><b><span style="color: red">{{ $item['ar'] * 1.5 }} Ft</span></b></td>
+                        <td><b><span style="color: red">{{ number_format($item['ar'], 0, ',', ' ') }} Ft</span></b></td>
+                        <td><b><span style="color: red">{{ number_format($item['ar'] * 1.25, 0, ',', ' ') }} Ft</span></b>
+                        </td>
+                        <td><b><span style="color: red">{{ number_format($item['ar'] * 1.5, 0, ',', ' ') }} Ft</span></b>
+                        </td>
                         <td><b><span style="color: red">Akciós!!</span></b></td>
                     @else
-                        <td>{{ $item['ar'] }} Ft</td>
-                        <td>{{ $item['ar'] * 1.25 }} Ft</td>
-                        <td>{{ $item['ar'] * 1.5 }} Ft</td>
+                        <td>{{ number_format($item['ar'], 0, ',', ' ') }} Ft</td>
+                        <td>{{ number_format($item['ar'] * 1.5, 0, ',', ' ') }} Ft</td>
+                        <td>{{ number_format($item['ar'] * 1.5, 0, ',', ' ') }} Ft</td>
                         <td></td>
                     @endif
                 </tr>

@@ -19,18 +19,7 @@ class PizzakController extends Controller
             "data" => $data
         ]);
     }
-
-    public function Adatlap($id) {
-        $data = Pizza::find($id);
-
-        if (isset($data)) {
-            return view('adatlap', [
-                "data" => $data
-            ]);
-        }
-    }
-
-    public function Ajanlat($p) {
+    public function OsszesP($p) {
         if ($p == "abc") {
             $data = Pizza::orderBy('nev') -> get();
             return view('osszes', [
@@ -50,6 +39,25 @@ class PizzakController extends Controller
                 "data" => $data
             ]);
         }
-        else if ($p == )
+        else if ($p == "321") {
+            $data = Pizza::orderBy('ar', 'DESC') -> get();
+            return view('osszes', [
+                "data" => $data
+            ]);
+        }
+    }
+
+    public function Adatlap($id) {
+        $data = Pizza::find($id);
+
+        if (isset($data)) {
+            return view('adatlap', [
+                "data" => $data
+            ]);
+        }
+    }
+
+    public function Ajanlat($p) {
+
     }
 }
