@@ -20,10 +20,36 @@ class PizzakController extends Controller
         ]);
     }
 
-    public function Adatlap() {
-        $data = Pizza::all();
-        return view('adatlap', [
-            "data" => $data
-        ]);
+    public function Adatlap($id) {
+        $data = Pizza::find($id);
+
+        if (isset($data)) {
+            return view('adatlap', [
+                "data" => $data
+            ]);
+        }
+    }
+
+    public function Ajanlat($p) {
+        if ($p == "abc") {
+            $data = Pizza::orderBy('nev') -> get();
+            return view('osszes', [
+                "data" => $data
+            ]);
+
+        }
+        else if ($p == "cba") {
+            $data = Pizza::orderBy('nev', 'DESC') -> get();
+            return view('osszes', [
+                "data" => $data
+            ]);
+        }
+        else if ($p == "123") {
+            $data = Pizza::orderBy('ar') -> get();
+            return view('osszes', [
+                "data" => $data
+            ]);
+        }
+        else if ($p == )
     }
 }
