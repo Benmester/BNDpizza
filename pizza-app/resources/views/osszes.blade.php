@@ -10,7 +10,7 @@
             <a href="/osszes/123">Ár szerint növekvő </a>
             <a href="/osszes/321">Ár szerint csökkenő</a>
         </p>
-        <table class="table table-striped">
+        <table class="table table-striped table-bordered">
             <tr>
                 <th>Név</th>
                 <th>Feltét</th>

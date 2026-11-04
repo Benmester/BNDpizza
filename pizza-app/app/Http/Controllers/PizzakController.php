@@ -45,6 +45,12 @@ class PizzakController extends Controller
                 "data" => $data
             ]);
         }
+        else {
+            $data = Pizza::all();
+            return view('osszes', [
+                "data" => $data
+            ]);
+        }
     }
 
     public function Adatlap($id) {
