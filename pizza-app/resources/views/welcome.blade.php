@@ -13,7 +13,7 @@
                         <b>Akciós ár (24cm): <span style="color: red">{{ $item['ar'] }} Ft </span> </b>
                     </p>
 
-                    <p style="text-align: light">
+                    <p style="text-align: right">
                         <a href="adatlap/{{ $item['id'] }}">További méretek</a>
                     </p>
 
