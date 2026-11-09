@@ -8,4 +8,5 @@ use App\Http\Controllers\PizzakController;
 class Pizza extends Model
 {
     protected $table = "pizzak";
+    public $timestamps = false;             # updated / created letiltása
 }

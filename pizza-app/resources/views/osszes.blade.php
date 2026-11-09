@@ -18,6 +18,8 @@
                 <th>32 cm</th>
                 <th>45 cm</th>
                 <th></th>
+                <th></th>
+                <th></th>
             </tr>
             @foreach ($data as $item)
                 <tr>
@@ -36,6 +38,8 @@
                         <td>{{ $item['ar'] * 1.5 }} Ft</td>
                         <td></td>
                     @endif
+                    <td><a class="link-info" href="/mod/{{ $item['id'] }}">Módosítás</a></td>
+                    <td><a class="link-danger" href="/alert/{{ $item['id'] }}">Törlés</a></td>
                 </tr>
             @endforeach
         </table>

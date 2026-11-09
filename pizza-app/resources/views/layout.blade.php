@@ -15,13 +15,16 @@
             <a class="navbar-brand" href="/">Laravel Pizza</a>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Akciós pizzák</a>
+                    <a class="nav-link" href="/">Akciós pizzák</a> <!-- read -->
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/osszes">Összes pizza</a>
+                    <a class="nav-link" href="/osszes">Összes pizza</a> <!-- read + update + delete -->
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/ajanlat">Nem tudok választani</a>
+                    <a class="nav-link" href="/ajanlat">Nem tudok választani</a> <!-- read -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/add">Pizza hozzáadása</a> <!-- create -->
                 </li>
             </ul>
         </div>

@@ -69,4 +69,47 @@ class PizzakController extends Controller
             "data" => $data
         ]);
     }
+
+    # Add
+    public function Add( Request $req) {
+        $req -> validate([
+            # Validálási feltételek
+            'nev'       => 'required|min:4|max:25|unique:pizzak,nev',         # vagy between:4,25
+            'feltet'    => 'required',
+            'ar'        => 'required|numeric|min:2000'
+        ], [
+            # Magyarítás, csak fullstack-ben
+            'required'  => 'Kötelező megadni!',
+            'nev.min'   => 'Legalább 4 karakter legyen!',
+            'ar.min'    => 'Legalább 2000 Ft legyen!',
+            'nev.max'   => 'Maximum 25 karakter lehet!',
+            'nev.unique'=> 'A megadott név már lézetik!'
+        ]);
+
+        $data = new Pizza;
+        $data['nev']    = $req['nev'];
+        $data['feltet'] = $req['feltet'];
+        $data['ar']     = $req['ar'];
+        if ($req -> has('akcios')) {
+            $data['akcios'] = 1;
+        } else {
+            $data['akcios'] = 0;
+        }
+        $data -> save();                                                        # adatbázisba mentés
+        return view('success', [
+            'msg' => "Sikeresen hozzáadtad a(z): ".$req['nev']." pizzát!"
+        ]);
+    }
+
+    # mod
+    public function ModForm($id) {
+        $data = Pizza::find($id);
+        if (isset($data)) {
+            return view('mod', [
+                'data' => $data
+            ]);
+        } else {
+            return view('error');
+        }
+    }
 }
