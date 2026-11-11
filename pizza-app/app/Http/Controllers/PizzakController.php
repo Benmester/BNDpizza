@@ -112,4 +112,59 @@ class PizzakController extends Controller
             return view('error');
         }
     }
+
+    public function ModBTN(Request $req, $id) {
+            # id vagy URL-ből, vgagy hidden inputként szerezhető meg (majd API-nál)
+            $req -> validate([
+            # Validálási feltételek
+            'nev'       => 'required|min:4|max:25|unique:pizzak,nev,'.$id,         # vagy between:4,25
+            'feltet'    => 'required',
+            'ar'        => 'required|numeric|min:2000'
+        ], [
+            # Magyarítás, csak fullstack-ben
+            'required'  => 'Kötelező megadni!',
+            'nev.min'   => 'Legalább 4 karakter legyen!',
+            'ar.min'    => 'Legalább 2000 Ft legyen!',
+            'nev.max'   => 'Maximum 25 karakter lehet!',
+            'nev.unique'=> 'A megadott név már lézetik!'
+        ]);
+
+        $data = Pizza::find($id);
+        # $data['id'] = $id;     b opció (rosszabb)
+        $data['nev']    = $req['nev'];
+        $data['feltet'] = $req['feltet'];
+        $data['ar']     = $req['ar'];
+        if ($req -> has('akcios')) {
+            $data['akcios'] = 1;
+        } else {
+            $data['akcios'] = 0;
+        }
+        $data -> save();
+
+        return redirect('/osszes') -> with([
+            # egyszer használatos session() készítése
+            "msg" => "Sikeresen módosította a pizzát!"
+        ]);
+        # ezzel azonnal törldik a request
+    }
+
+    # delete
+    public function Alert($id) {
+        $data = Pizza::find($id);
+        if (isset($data)) {
+            return view('alert', [
+                'data' => $data
+            ]);
+        } else {
+            return view('error');
+        }
+    }
+
+    public function Del($id) {
+        $data = Pizza::find($id);
+        $data -> delete();
+        return redirect('/osszes') -> with([
+            'msg' => "Sikeres törlés!"
+        ]);
+    }
 }

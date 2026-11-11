@@ -16,3 +16,7 @@ Route::post('/add', [PizzakController::class, 'Add']);      # Button műkdése +
 # mod
 Route::get('/mod/{id}', [PizzakController::class, 'ModForm']);
 Route::post('/mod/{id}', [PizzakController::class, 'ModBTN']);
+
+# delete
+Route::get('/alert/{id}', [PizzakController::class, 'Alert']);
+Route::get('/del/{id}', [PizzakController::class, 'Del']);
